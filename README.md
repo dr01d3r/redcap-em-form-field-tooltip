@@ -1,5 +1,5 @@
-# redcap-em-form-field-tooltip
-External Module for REDCap to inject tooltips to data entry forms
+# Form Field Tooltip (REDCap External Module)
+Adds tooltips to fields in data entry forms.
 
 Tooltips are positioned in the same space, and just above, the History and Comment Log buttons.
 

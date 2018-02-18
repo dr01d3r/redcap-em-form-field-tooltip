@@ -21,7 +21,7 @@
   "project-settings": [
     {
       "key": "fields",
-      "name": "Please select a field",
+      "name": "Click the '+' button to add more tooltips",
       "required": true,
       "type": "sub_settings",
       "repeatable": true,

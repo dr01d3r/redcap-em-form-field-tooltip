@@ -1,10 +1,16 @@
 # redcap-em-form-field-tooltip
 External Module for REDCap to inject tooltips to data entry forms
 
+Tooltips are positioned in the same space, and just above, the History and Comment Log buttons.
+
+![example output of a form field tooltip](imgs/example3.PNG)
 ![example output of a form field tooltip](imgs/example.PNG)
 
 ## Prerequisites
 - REDCap >= 8.0.0
+
+## Permissions
+- redcap_data_entry_form
 
 ## Configuration
 - Enable the module in your project if not already enabled
@@ -18,6 +24,10 @@ External Module for REDCap to inject tooltips to data entry forms
 ## Considerations
 - Put as much detail in the tooltips as is necessary, but be wary of the length
   - Too much content and it may fall below the screen
+- If you intend to use many tooltips on many forms, the configuration pop-up will get quite lengthy and hard to scan for a particular field you need to edit/remove.
+  - Currently, there is no way around this situation, as this is the default behavior of the EM configuration pop-up.
+- Not all field layout configurations have been tested
+  - If you identify an issue with a particular configuration, please submit an issue on this GitHub repo or make a post on the forums and tag me (@chris.kadolph)
 
 ![example 2 output of a form field tooltip](imgs/example2.PNG)
 

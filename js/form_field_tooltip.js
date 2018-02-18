@@ -1,9 +1,9 @@
-jQuery(function() {
+$(function() {
 	var templateSource = document.getElementById('form-field-tooltip-template').innerHTML;
 	var template = Handlebars.compile(templateSource, { noEscape: true });
 	
-	for (const prop in FormFieldTooltip.settings) {
-		var parentElement = jQuery('#label-' + FormFieldTooltip.settings[prop].field_name + ' table tr td')[1];
+	for (var prop in FormFieldTooltip.settings) {
+		var parentElement = $('#label-' + FormFieldTooltip.settings[prop].field_name + ' table tr td')[1];
 		if (parentElement) {
 			var tooltipHtml = template(FormFieldTooltip.settings[prop]);
 			$(tooltipHtml).prependTo(parentElement);

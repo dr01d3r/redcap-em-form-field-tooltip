@@ -1,3 +1,21 @@
+.popover {
+	background-color: lightgoldenrodyellow;
+}
+.popover.right .arrow:after {
+	border-right-color: lightgoldenrodyellow;
+}
+.popover.left .arrow:after {
+	border-left-color: lightgoldenrodyellow;
+}
+.popover.top .arrow:after {
+	border-top-color: lightgoldenrodyellow;
+}
+.popover.bottom .arrow:after {
+	border-bottom-color: lightgoldenrodyellow;
+}
+.rc-tooltip {
+	display: inline-block;
+}
 .rc-tooltip-content {
 	display: none;
 }

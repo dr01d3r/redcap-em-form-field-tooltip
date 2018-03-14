@@ -10,7 +10,8 @@
     }
   ],
   "permissions": [
-    "redcap_data_entry_form"
+    "redcap_data_entry_form",
+    "redcap_survey_page"
   ],
   "compatibility": {
     "php-version-min": "5.2.0",

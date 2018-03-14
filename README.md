@@ -1,16 +1,24 @@
 # Form Field Tooltip (REDCap External Module)
-Adds tooltips to fields in data entry forms.
+Adds tooltips to fields in data entry forms and surveys.
 
-Tooltips are positioned in the same space, and just above, the History and Comment Log buttons.
+- For Data Entry Forms, tooltips are positioned in the same space, and just above, the History and Comment Log buttons.
+- For Surveys, they are positioned just after the field label
+   - This is due to a lack of any better placement location.  When viewing the survey form on the Data Entry side of things, tooltips display as they would a data entry form.
 
-![example output of a form field tooltip](imgs/example3.PNG)
-![example output of a form field tooltip](imgs/example.PNG)
+#### Data Entry Form Example
+![example output of a form field tooltip](imgs/data_entry_form1.PNG)
+
+![example output of a form field tooltip](imgs/data_entry_form2.PNG)
+
+#### Survey Example
+![example output of a form field tooltip](imgs/survey1.PNG)
 
 ## Prerequisites
 - REDCap >= 8.0.0
 
 ## Permissions
 - redcap_data_entry_form
+- redcap_survey_page
 
 ## Configuration
 - Enable the module in your project if not already enabled
@@ -29,9 +37,16 @@ Tooltips are positioned in the same space, and just above, the History and Comme
 - Not all field layout configurations have been tested
   - If you identify an issue with a particular configuration, please submit an issue on this GitHub repo or make a post on the forums and tag me (@chris.kadolph)
 
-![example 2 output of a form field tooltip](imgs/example2.PNG)
+![example output of a form field tooltip](imgs/data_entry_form3.PNG)
 
 ## Future Support
-- Possible features that might come in future updates (depending on your feedback)
+- Possible features that might come in future updates (depending on feedback)
   - An option to specify the where the tooltip opens, relative to the cursor (i.e. top center, bottom right, etc.)
   - Limit tooltips to 1 per field (currently there is no limit)
+
+## Version Info
+- 2.0
+   - Added support for surveys
+   - Switched tooltip implementation to the [Bootstrap Popover](http://getbootstrap.com/docs/3.3/javascript/#popovers)
+- 1.0
+   - Initial release

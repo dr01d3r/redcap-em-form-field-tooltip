@@ -17,6 +17,21 @@ class FormFieldTooltip extends AbstractExternalModule {
     }
 
     /**
+     * Hook function to execute on every survey
+     * @param $project_id
+     * @param $record
+     * @param $instrument
+     * @param $event_id
+     * @param $group_id
+     * @param $survey_hash
+     * @param $response_id
+     * @param $repeat_instance
+     */
+    function redcap_survey_page ($project_id, $record, $instrument, $event_id, $group_id, $survey_hash, $response_id, $repeat_instance) {
+        $this->render_tooltips($instrument, true);
+    }
+
+    /**
      * Hook function to execute on every data entry form
      * @param $project_id
      * @param $record
@@ -26,7 +41,10 @@ class FormFieldTooltip extends AbstractExternalModule {
      * @param $repeat_instance
      */
     function redcap_data_entry_form($project_id, $record, $instrument, $event_id, $group_id, $repeat_instance) {
-        
+        $this->render_tooltips($instrument, false);
+    }
+
+    function render_tooltips($instrument, $is_survey) {
         // get all fields on the current instrument
         $instrument_fields = \REDCap::getFieldNames($instrument);
 
@@ -46,30 +64,31 @@ class FormFieldTooltip extends AbstractExternalModule {
         // prepare the data for javascript
         $field_settings = json_encode($field_settings);
 
-		// stylesheet
-		echo "<link href='" . $this->getUrl('css/form_field_tooltip.css') . "' media='all' rel='stylesheet' />";
+        // stylesheet
+        echo "<link href='" . $this->getUrl('css/form_field_tooltip.css') . "' media='all' rel='stylesheet' />";
         // handlebars dependency for templates
-		echo "<script src='" . $this->getUrl('js/handlebars.min.js') . "'></script>"
-		
-		?>
-		<script type='text/javascript'>
-			if(typeof FormFieldTooltip === 'undefined') { 
-				var FormFieldTooltip = {
-					id: '<?php echo uniqid(); ?>',
-					settings: <?php echo $field_settings; ?>
-				};
-			}
-		</script>
+        echo "<script src='" . $this->getUrl('js/handlebars.min.js') . "'></script>"
+
+        ?>
+        <script type='text/javascript'>
+            if(typeof FormFieldTooltip === 'undefined') {
+                var FormFieldTooltip = {
+                    id: '<?=uniqid()?>',
+                    isSurvey: <?=$is_survey?"true":"false"?>,
+                    settings: <?=$field_settings?>
+                };
+            }
+        </script>
         <!-- handlebars template for tooltips -->
         <script id='form-field-tooltip-template' type='text/x-handlebars-template'>
-			<div class='rc-tooltip'>
-				<div class='rc-tooltip-content'>{{field_tooltip}}</div>
-				<span class='glyphicon glyphicon-info-sign text-info'></span>
-			</div>
-		</script>
-		<?php
-		
-		// form_field_tooltip
-		echo "<script src='" . $this->getUrl('js/form_field_tooltip.js') . "'></script>";
+            <div class='rc-tooltip'>
+                <div class='rc-tooltip-content'>{{field_tooltip}}</div>
+                <span class='glyphicon glyphicon-info-sign text-info'></span>
+            </div>
+        </script>
+        <?php
+
+        // form_field_tooltip
+        echo "<script src='" . $this->getUrl('js/form_field_tooltip.js') . "'></script>";
     }
 }

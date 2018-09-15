@@ -45,8 +45,4 @@ Adds tooltips to fields in data entry forms and surveys.
   - Limit tooltips to 1 per field (currently there is no limit)
 
 ## Version Info
-- 2.0
-   - Added support for surveys
-   - Switched tooltip implementation to the [Bootstrap Popover](http://getbootstrap.com/docs/3.3/javascript/#popovers)
-- 1.0
-   - Initial release
+See [CHANGELOG](CHANGELOG.md)

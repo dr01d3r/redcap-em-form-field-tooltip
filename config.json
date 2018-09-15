@@ -23,21 +23,18 @@
     {
       "key": "fields",
       "name": "Click the '+' button to add more tooltips",
-      "required": true,
       "type": "sub_settings",
       "repeatable": true,
       "sub_settings": [
         {
           "key": "field_name",
           "name": "Field Name",
-          "required": true,
           "type": "field-list",
           "repeatable": false
         },
         {
           "key": "field_tooltip",
           "name": "Tooltip Contents",
-          "required": true,
           "type": "rich-text",
           "repeatable": false
         }

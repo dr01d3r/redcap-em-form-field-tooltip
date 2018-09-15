@@ -21,12 +21,8 @@ $(function() {
 	}
 
     $('.rc-tooltip').popover({
+        container: 'body',
         html: true,
-        trigger: 'hover',
-        placement: 'auto right',
-        content: function() {
-            $(this).css('cursor','pointer');
-            return $(this).find('.rc-tooltip-content').html();
-        }
+        trigger: 'hover'
     });
 });

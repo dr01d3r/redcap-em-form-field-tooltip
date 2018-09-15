@@ -53,7 +53,7 @@ class FormFieldTooltip extends AbstractExternalModule {
 
         // filter out anything not on the current instrument
         $field_settings = array_filter($field_settings, function ($field) use ($instrument_fields) {
-            return in_array($field["field_name"], $instrument_fields);
+            return !empty($field["field_name"]) && !empty($field["field_tooltip"]) && in_array($field["field_name"], $instrument_fields);
         });
 
         // modify the field_tooltip value to be decoded for proper html display
@@ -81,13 +81,12 @@ class FormFieldTooltip extends AbstractExternalModule {
         </script>
         <!-- handlebars template for tooltips -->
         <script id='form-field-tooltip-template' type='text/x-handlebars-template'>
-            <div class='rc-tooltip'>
-                <div class='rc-tooltip-content'>{{field_tooltip}}</div>
-                <span class='glyphicon glyphicon-info-sign text-info'></span>
-            </div>
+            <span class='rc-tooltip text-primary' data-toggle='popover' data-content='{{field_tooltip}}'>
+                <i class='fas fa-info-circle' style='display: inline;'></i>
+            </span>
         </script>
-        <?php
 
+        <?php
         // form_field_tooltip
         echo "<script src='" . $this->getUrl('js/form_field_tooltip.js') . "'></script>";
     }

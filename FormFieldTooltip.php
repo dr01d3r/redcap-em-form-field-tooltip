@@ -56,19 +56,14 @@ class FormFieldTooltip extends AbstractExternalModule {
             return !empty($field["field_name"]) && !empty($field["field_tooltip"]) && in_array($field["field_name"], $instrument_fields);
         });
 
-        // modify the field_tooltip value to be decoded for proper html display
-        foreach ($field_settings as $field) {
-            $field["field_tooltip"] = html_entity_decode($field["field_tooltip"]);
-        }
-
         // prepare the data for javascript
         $field_settings = json_encode($field_settings);
 
         // stylesheet
         echo "<link href='" . $this->getUrl('css/form_field_tooltip.css') . "' media='all' rel='stylesheet' />";
+		
         // handlebars dependency for templates
-        echo "<script src='" . $this->getUrl('js/handlebars.min.js') . "'></script>"
-
+        echo "<script src='" . $this->getUrl('js/handlebars.min.js') . "'></script>";
         ?>
         <script type='text/javascript'>
             if(typeof FormFieldTooltip === 'undefined') {

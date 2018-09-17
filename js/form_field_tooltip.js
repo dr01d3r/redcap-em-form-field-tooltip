@@ -1,6 +1,6 @@
 $(function() {
 	var templateSource = document.getElementById('form-field-tooltip-template').innerHTML;
-	var template = Handlebars.compile(templateSource, { noEscape: true });
+	var template = Handlebars.compile(templateSource);
 	
 	for (var prop in FormFieldTooltip.settings) {
 	    var parentElement;

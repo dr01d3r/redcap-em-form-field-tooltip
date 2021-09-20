@@ -1,3 +1,8 @@
+## 3.2
+- Updated handlebars from v4.0.11 to v4.7.6
+- Fixed an issue where a Bootstrap upgrade removed styling and certain html elements in the popovers (tooltips)
+## 3.1
+- Corrected a bug with HTML escaping
 ## 3.0
 - Config settings are no longer explicitly required
   - Incomplete settings will be ignored

@@ -63,7 +63,7 @@ class FormFieldTooltip extends AbstractExternalModule {
         echo "<link href='" . $this->getUrl('css/form_field_tooltip.css') . "' media='all' rel='stylesheet' />";
 		
         // handlebars dependency for templates
-        echo "<script src='" . $this->getUrl('js/handlebars.min.js') . "'></script>";
+        echo "<script src='" . $this->getUrl('js/handlebars-v4.7.6.js') . "'></script>";
         ?>
         <script type='text/javascript'>
             if(typeof FormFieldTooltip === 'undefined') {

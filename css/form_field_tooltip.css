@@ -16,6 +16,10 @@
 .popover.bottom .arrow:after {
 	border-bottom-color: lightgoldenrodyellow;
 }
-.rc-tooltip {
+.fft-rc-tooltip {
 	display: inline-block;
+}
+.fft-embedded-field {
+	top:0px;
+	left:-10px;
 }

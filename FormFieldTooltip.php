@@ -76,7 +76,7 @@ class FormFieldTooltip extends AbstractExternalModule {
         </script>
         <!-- handlebars template for tooltips -->
         <script id='form-field-tooltip-template' type='text/x-handlebars-template'>
-            <span class='rc-tooltip text-primary' data-toggle='popover' data-content='{{field_tooltip}}'>
+            <span class='fft-rc-tooltip text-primary' data-toggle='popover' data-content='{{field_tooltip}}'>
                 <i class='fas fa-info-circle' style='display: inline;'></i>
             </span>
         </script>

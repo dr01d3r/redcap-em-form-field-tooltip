@@ -15,8 +15,12 @@ $(function() {
 
 	// append tooltip to elements based on form/survey
 	for (var prop in FormFieldTooltip.settings) {
-	    var parentElement;
-	    if (FormFieldTooltip.isSurvey) {
+	    var parentElement = $("[var=\'"+ FormFieldTooltip.settings[prop].field_name + "\']");
+        var isEmbeddedField = parentElement.length > 0;
+
+        if (isEmbeddedField) {
+            parentElement = parentElement.closest("td");
+        } else if (FormFieldTooltip.isSurvey) {
             parentElement = $('#label-' + FormFieldTooltip.settings[prop].field_name);
         } else {
             parentElement = $('#label-' + FormFieldTooltip.settings[prop].field_name + ' table tr td')[1];
@@ -24,7 +28,10 @@ $(function() {
 		if (parentElement) {
 			var tooltipHtml = template(FormFieldTooltip.settings[prop]);
 
-            if (FormFieldTooltip.isSurvey) {
+            if(isEmbeddedField) {
+                $(parentElement).addClass("position-relative");
+                $(tooltipHtml).prependTo(parentElement).addClass("position-absolute fft-embedded-field");
+            } else if(FormFieldTooltip.isSurvey) {
                 $(tooltipHtml).appendTo(parentElement);
             } else {
                 $(tooltipHtml).prependTo(parentElement);
@@ -32,7 +39,7 @@ $(function() {
 		}
 	}
 
-    $('.rc-tooltip').popover({
+    $('.fft-rc-tooltip').popover({
         container: 'body',
         html: true,
         trigger: 'hover'

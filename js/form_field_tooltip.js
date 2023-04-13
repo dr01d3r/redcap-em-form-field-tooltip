@@ -1,13 +1,26 @@
 $(function() {
+
     // modify whitelist so these elements dont get sanitized
-    $.fn.popover.Constructor.Default.whiteList.table = [];
-    $.fn.popover.Constructor.Default.whiteList.thead = [];
-    $.fn.popover.Constructor.Default.whiteList.tbody = [];
-    $.fn.popover.Constructor.Default.whiteList.th = [];
-    $.fn.popover.Constructor.Default.whiteList.tr = [];
-    $.fn.popover.Constructor.Default.whiteList.td = [];
-    // also include the style attribute to support rich text editor
-    $.fn.popover.Constructor.Default.whiteList["*"].push("style");
+    if(FormFieldTooltip.bootstrap_version === 4){
+        $.fn.popover.Constructor.Default.whiteList.table = [];
+        $.fn.popover.Constructor.Default.whiteList.thead = [];
+        $.fn.popover.Constructor.Default.whiteList.tbody = [];
+        $.fn.popover.Constructor.Default.whiteList.th = [];
+        $.fn.popover.Constructor.Default.whiteList.tr = [];
+        $.fn.popover.Constructor.Default.whiteList.td = [];
+        // also include the style attribute to support rich text editor
+        $.fn.popover.Constructor.Default.whiteList["*"].push("style");
+    }
+    else{
+        $.fn.popover.Constructor.Default.allowList.table = [];
+        $.fn.popover.Constructor.Default.allowList.thead = [];
+        $.fn.popover.Constructor.Default.allowList.tbody = [];
+        $.fn.popover.Constructor.Default.allowList.th = [];
+        $.fn.popover.Constructor.Default.allowList.tr = [];
+        $.fn.popover.Constructor.Default.allowList.td = [];
+        // also include the style attribute to support rich text editor
+        $.fn.popover.Constructor.Default.allowList["*"].push("style");
+    }
 
     // identify and compile the prepared template
     var templateSource = document.getElementById('form-field-tooltip-template').innerHTML;

@@ -1,3 +1,7 @@
+## 3.4
+- Added support for Bootstrap 5
+## 3.3
+- Added better support for Field Embedding
 ## 3.2
 - Updated handlebars from v4.0.11 to v4.7.6
 - Fixed an issue where a Bootstrap upgrade removed styling and certain html elements in the popovers (tooltips)

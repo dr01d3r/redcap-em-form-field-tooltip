@@ -61,7 +61,7 @@ class FormFieldTooltip extends AbstractExternalModule {
 
         // stylesheet
         echo "<link href='" . $this->getUrl('css/form_field_tooltip.css') . "' media='all' rel='stylesheet' />";
-		
+
         // handlebars dependency for templates
         echo "<script src='" . $this->getUrl('js/handlebars-v4.7.6.js') . "'></script>";
         ?>
@@ -70,13 +70,14 @@ class FormFieldTooltip extends AbstractExternalModule {
                 var FormFieldTooltip = {
                     id: '<?=uniqid()?>',
                     isSurvey: <?=$is_survey?"true":"false"?>,
-                    settings: <?=$field_settings?>
+                    settings: <?=$field_settings?>,
+                    bootstrap_version: <?=(version_compare(REDCAP_VERSION, "13.4.0", ">=") ? 5 : 4)?>,
                 };
             }
         </script>
         <!-- handlebars template for tooltips -->
         <script id='form-field-tooltip-template' type='text/x-handlebars-template'>
-            <span class='fft-rc-tooltip text-primary' data-toggle='popover' data-content='{{field_tooltip}}'>
+            <span class='fft-rc-tooltip text-primary' data-toggle='popover' data-bs-toggle='popover' data-bs-content='{{field_tooltip}}' data-content='{{field_tooltip}}'>
                 <i class='fas fa-info-circle' style='display: inline;'></i>
             </span>
         </script>
